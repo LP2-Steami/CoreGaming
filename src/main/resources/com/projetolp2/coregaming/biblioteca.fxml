@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.BibliotecaController">
+   <children>
+      <ScrollPane prefHeight="400.0" prefWidth="600.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="598.0">
+               <children>
+                  <MenuBar prefHeight="25.0" prefWidth="600.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Loja" />
+                      <Menu mnemonicParsing="false" text="Inventário" />
+                      <Menu mnemonicParsing="false" text="Usuário" />
+                    </menus>
+                  </MenuBar>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

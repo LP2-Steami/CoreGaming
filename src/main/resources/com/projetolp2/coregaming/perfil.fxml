@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="281.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.PerfilController">
+   <children>
+      <ImageView fx:id="imgUsuario" fitHeight="94.0" fitWidth="98.0" layoutX="39.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="174.0" layoutY="14.0" prefHeight="17.0" prefWidth="98.0" text="Nome do Usuário" />
+      <Label layoutX="174.0" layoutY="76.0" prefHeight="17.0" prefWidth="98.0" text="Email" />
+      <Label layoutX="174.0" layoutY="141.0" prefHeight="17.0" prefWidth="98.0" text="Senha" />
+      <Label layoutX="174.0" layoutY="205.0" prefHeight="17.0" prefWidth="98.0" text="Data de Criação" />
+      <TextField fx:id="nomeUsuarioField" layoutX="174.0" layoutY="41.0" />
+      <TextField fx:id="emailUsuarioField" layoutX="174.0" layoutY="105.0" />
+      <TextField fx:id="senhaUsuarioField" layoutX="174.0" layoutY="168.0" />
+      <TextField fx:id="dataCriacaoField" layoutX="174.0" layoutY="232.0" />
+   </children>
+</AnchorPane>

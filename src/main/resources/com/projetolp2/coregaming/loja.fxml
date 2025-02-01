@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.LojaController">
+   <children>
+      <ScrollPane layoutY="26.0" prefHeight="375.0" prefWidth="600.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="597.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="47.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="343.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="47.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="343.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <MenuBar layoutY="1.0" prefHeight="30.0" prefWidth="600.0">
+        <menus>
+          <Menu fx:id="loja" mnemonicParsing="false" onAction="#onLojaButtonClicked" text="Loja" />
+          <Menu fx:id="biblioteca" mnemonicParsing="false" onAction="#onBibliotecaButtonClicked" text="Biblioteca" />
+          <Menu fx:id="usuario" mnemonicParsing="false" text="Usuário">
+            <items>
+                  <MenuItem fx:id="criarPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Criar usuário" />
+                <MenuItem fx:id="verPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Ver perfil" />
+                <MenuItem fx:id="atualizarPerfil" mnemonicParsing="false" onAction="#onAtualizarPerfilButtonClicked" text="Alterar perfil" />
+                <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" />
+            </items>
+          </Menu>
+            <Menu fx:id="carrinho" mnemonicParsing="false" onAction="#onLojaButtonClicked" text="Carrinho" />
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
