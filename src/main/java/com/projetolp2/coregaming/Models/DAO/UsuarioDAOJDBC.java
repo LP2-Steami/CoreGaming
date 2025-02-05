@@ -5,34 +5,62 @@ import com.projetolp2.coregaming.Models.Entities.Usuario;
 import com.projetolp2.coregaming.Util.Alertas;
 import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class UsuarioDAOJDBC implements DAOUsuario {
-    private Connection conn;
+    private final Connection conn;
+    PreparedStatement psChecarUsuarioExistente = null;
+    ResultSet resultSet = null;
     UsuarioDAOJDBC(Connection conn){
         this.conn = conn;
     }
-    public void inserir(Usuario usuario){
+    public void inserir(Usuario usuario) throws SQLException {
+
         String insert = "INSERT INTO Usuario (nome, email, senha, data_criacao) VALUES (?,?,?,?)";
         PreparedStatement statement = null;
+        psChecarUsuarioExistente = conn.prepareStatement("SELECT * FROM usuario WHERE email = ?");
+        psChecarUsuarioExistente.setString(1, usuario.getEmail());
+        resultSet = psChecarUsuarioExistente.executeQuery();
 
         try {
-            ConnectionDB.getConnection();
-            statement = conn.prepareStatement(insert);
-            statement.setString(1, usuario.getNome());
-            statement.setString(2, usuario.getEmail());
-            statement.setString(3, usuario.getSenha());
-            statement.setDate(4, Date.valueOf(usuario.getDataCriacao()));
+            if (resultSet.isBeforeFirst()){
+                System.out.println("Email já cadastrado!");
+                Alertas.mostrarAlerta("Email já cadastrado", null, "Você não pode utilizar este email.", Alert.AlertType.ERROR);
+            } else {
+                statement = conn.prepareStatement(insert);
+                statement.setString(1, usuario.getNome());
+                statement.setString(2, usuario.getEmail());
+                statement.setString(3, usuario.getSenha());
+                statement.setDate(4, Date.valueOf(usuario.getDataCriacao()));
+            }
 
             statement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            ConnectionDB.closeStatement(statement);
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (psChecarUsuarioExistente != null) {
+                try {
+                    psChecarUsuarioExistente.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            ConnectionDB.closeConnection();
         }
     }
     public void atualizar(Usuario usuario) {

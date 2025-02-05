@@ -27,13 +27,12 @@
           <Menu fx:id="biblioteca" mnemonicParsing="false" onAction="#onBibliotecaButtonClicked" text="Biblioteca" />
           <Menu fx:id="usuario" mnemonicParsing="false" text="Usuário">
             <items>
-                  <MenuItem fx:id="criarPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Criar usuário" />
                 <MenuItem fx:id="verPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Ver perfil" />
                 <MenuItem fx:id="atualizarPerfil" mnemonicParsing="false" onAction="#onAtualizarPerfilButtonClicked" text="Alterar perfil" />
                 <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" />
             </items>
           </Menu>
-            <Menu fx:id="carrinho" mnemonicParsing="false" onAction="#onLojaButtonClicked" text="Carrinho" />
+            <Menu fx:id="carrinho" mnemonicParsing="false" onAction="#onCarrinhoButtonClicked" text="Carrinho" />
         </menus>
       </MenuBar>
    </children>

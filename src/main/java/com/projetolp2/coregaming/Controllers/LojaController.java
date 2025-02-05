@@ -40,7 +40,7 @@ public class LojaController {
     @FXML
     private ImageView img4;
 
-    private static Stage stage;
+    static Stage stage;
 
     public static Stage getStage() {
         return stage;
@@ -61,5 +61,9 @@ public class LojaController {
     @FXML
     public void onAtualizarPerfilButtonClicked() throws IOException {
         AplicacaoBase.newStage("atualizar-perfil.fxml", "Atualizar Perfil");
+    }
+    @FXML
+    public void onCarrinhoButtonClicked() throws IOException {
+        AplicacaoBase.newStage("carrinho.fxml", "Carrinho");
     }
 }

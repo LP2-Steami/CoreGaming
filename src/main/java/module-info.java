@@ -2,6 +2,7 @@ module com.projetolp2.coregaming {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires org.postgresql.jdbc;
 
 
     opens com.projetolp2.coregaming to javafx.fxml;
