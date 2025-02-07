@@ -1,50 +1,16 @@
 package com.projetolp2.coregaming.Controllers;
 
 import com.projetolp2.coregaming.AplicacaoBase;
+import com.projetolp2.coregaming.Models.Entities.Usuario;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class LojaController {
-    public MenuItem atualizarPerfil;
-    @FXML
-    private MenuBar menuBarLoja;
-    @FXML
-    private Menu loja;
-    @FXML
-    private Menu biblioteca;
-    @FXML
-    private Menu usuario;
-    @FXML
-    private Menu carrinho;
-    @FXML
-    private MenuItem criarPerfil;
-    @FXML
-    private MenuItem verPerfil;
-    @FXML
-    private MenuItem alterarPerfil;
-    @FXML
-    private MenuItem sairPerfil;
-    @FXML
-    private ScrollPane scrollPane;
-    @FXML
-    private ImageView img1;
-    @FXML
-    private ImageView img2;
-    @FXML
-    private ImageView img3;
-    @FXML
-    private ImageView img4;
 
-    static Stage stage;
-
-    public static Stage getStage() {
-        return stage;
-    }
+    private Usuario usuario;
 
     @FXML
     public void onLojaButtonClicked() throws IOException {
@@ -65,5 +31,10 @@ public class LojaController {
     @FXML
     public void onCarrinhoButtonClicked() throws IOException {
         AplicacaoBase.newStage("carrinho.fxml", "Carrinho");
+    }
+    @FXML
+    public void onSairButtonClicked() throws IOException {
+        AplicacaoBase.newStage("login.fxml", "Logar perfil");
+
     }
 }

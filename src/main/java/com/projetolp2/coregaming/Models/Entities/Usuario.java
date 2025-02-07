@@ -4,10 +4,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 
-public class Usuario {
+public class Usuario{
 
 
-    private int id;
+    private static int id;
 
     private String nome;
 
@@ -31,7 +31,7 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return id == usuario.id;
+        return true;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Usuario {
 
     // Getters e Setters
     public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public static void setId(int id) {Usuario.id = id;}
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
@@ -61,9 +61,4 @@ public class Usuario {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
-
-
-
-
 }

@@ -17,17 +17,13 @@ import java.sql.SQLException;
 
 public class LoginController{
     @FXML
-    private Button entrarButton;
-    @FXML
     private Label loginMessageLabel;
     @FXML
     private TextField emailField;
     @FXML
     private PasswordField senhaField;
-    @FXML
-    private Hyperlink linkCadastrar;
 
-    private Usuario usuario;
+    private Usuario usuarioAtual;
 
     @FXML
     public void onLinkCadastrarClicked() throws IOException {
@@ -64,6 +60,7 @@ public class LoginController{
                     String senhaRetornada = resultados.getString("senha");
                     if (senhaRetornada.equals(senha)) {
                         AplicacaoBase.newStage("loja.fxml", "Loja");
+                        usuarioAtual.setId(Integer.parseInt(resultados.getString("id_usuario")));
                     } else {
                         System.out.println("As senhas não correspondem!");
                         Alertas.mostrarAlerta("Senhas diferentes!", null, "Senhas incorrespondentes!", Alert.AlertType.ERROR);

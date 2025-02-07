@@ -51,9 +51,9 @@ public class AtualizarPerfilController {
     }
 
     public void onAtualizarClick() throws SQLException, ClassNotFoundException {
-        usuario.setNome(nomeUsuario.getText());
-        usuario.setEmail(emailUsuario.getText());
-        usuario.setSenha(senhaUsuario.getText());
+        usuario.setNome(nomeUsuarioField.getText());
+        usuario.setEmail(emailUsuarioField.getText());
+        usuario.setSenha(senhaUsuarioField.getText());
         usuario.setFoto(fotoOnClicked());
 
         DAOFactory.createUsuarioDao().atualizar(usuario);

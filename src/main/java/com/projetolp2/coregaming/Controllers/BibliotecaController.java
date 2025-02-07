@@ -1,34 +1,52 @@
 package com.projetolp2.coregaming.Controllers;
 
+import com.projetolp2.coregaming.AplicacaoBase;
+import com.projetolp2.coregaming.Models.Entities.Jogo;
+import com.projetolp2.coregaming.Models.Entities.Usuario;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.SubScene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+
+import java.io.IOException;
 
 public class BibliotecaController {
-
+    public MenuItem verPerfil;
     public MenuItem atualizarPerfil;
+    public ImageView fotoJogo;
+    public TextArea descricaoJogo;
+    public Button botaoJogar;
+    public Label tituloJogo;
     @FXML
-    private MenuBar menuBarLoja;
+    private Label tituloJogoSideBar;
+    private Jogo jogo;
+    private Usuario usuarioAtual;
+
+    public void mostrarJogos() {
+        tituloJogoSideBar.setText(jogo.getTitulo());
+    }
+
     @FXML
-    private Menu loja;
+    public void onLojaButtonClicked() throws IOException {
+        AplicacaoBase.newStage("loja.fxml", "Loja");
+    }
     @FXML
-    private Menu biblioteca;
+    public void onBibliotecaButtonClicked() throws IOException {
+        AplicacaoBase.newStage("biblioteca.fxml", "Biblioteca");
+    }
     @FXML
-    private Menu usuario;
+    public void onVerPerfilButtonClicked() throws IOException {
+        AplicacaoBase.newStage("perfil.fxml", "Perfil do Usuário");
+    }
     @FXML
-    private Menu carrinho;
+    public void onAtualizarPerfilButtonClicked() throws IOException {
+        AplicacaoBase.newStage("atualizar-perfil.fxml", "Atualizar Perfil");
+    }
     @FXML
-    private MenuItem verPerfil;
-    @FXML
-    private MenuItem alterarPerfil;
-    @FXML
-    private MenuItem sairPerfil;
-    @FXML
-    private ListView listaDeJogos;
-    @FXML
-    private Pane paneJogo;
+    public void onCarrinhoButtonClicked() throws IOException {
+        AplicacaoBase.newStage("carrinho.fxml", "Carrinho");
+    }
 }

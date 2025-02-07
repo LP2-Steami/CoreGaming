@@ -33,7 +33,7 @@ public class CriarPefilController {
     private Usuario usuario;
     private LocalDate data;
 
-    public void onCriarClicked() throws SQLException, ClassNotFoundException {
+    public void onCriarClicked() throws SQLException, ClassNotFoundException, IOException {
         Usuario usuario = new Usuario();
         usuario.setNome(nomeField.getText());
         usuario.setEmail(emailField.getText());
@@ -41,7 +41,8 @@ public class CriarPefilController {
         usuario.setDataCriacao(LocalDate.now());
 
         DAOFactory.createUsuarioDao().inserir(usuario);
-        Alertas.mostrarAlerta("Sucesso!",null,"Usuário atualizado com sucesso!", Alert.AlertType.INFORMATION);
+        Alertas.mostrarAlerta("Sucesso!",null,"Usuário atualizado com sucesso!", Alert.AlertType.CONFIRMATION);
+        AplicacaoBase.newStage("login.fxml", "Logar perfil");
     }
 
     public void onLogarClicked() throws IOException {

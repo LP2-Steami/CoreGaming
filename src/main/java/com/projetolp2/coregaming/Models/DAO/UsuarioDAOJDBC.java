@@ -1,11 +1,13 @@
 package com.projetolp2.coregaming.Models.DAO;
 
 import com.projetolp2.coregaming.DB.ConnectionDB;
+import com.projetolp2.coregaming.Models.Entities.Jogo;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
 import com.projetolp2.coregaming.Util.Alertas;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 
 public class UsuarioDAOJDBC implements DAOUsuario {
@@ -107,5 +109,23 @@ public class UsuarioDAOJDBC implements DAOUsuario {
             ConnectionDB.closeStatement(statement);
         }
     }
+    public void adicionarNoCarrinho(Jogo jogo, Usuario usuario){
+        PreparedStatement statement = null;
+        String insert = "INSERT INTO Transacao (idUsuario, data, preco, quantidade) VALUES (?,?,?,?)";
+        int quantidade = 0;
+        try {
+            ConnectionDB.getConnection();
+            statement = conn.prepareStatement(insert);
+            statement.setInt(1, usuario.getId());
+            statement.setString(2, String.valueOf(LocalDate.now()));
+            statement.setDouble(3, jogo.getPreco());
+            statement.setInt(4, quantidade);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            ConnectionDB.closeStatement(statement);
+        }
 
     }
+}

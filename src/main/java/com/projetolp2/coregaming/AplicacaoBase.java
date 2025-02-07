@@ -1,5 +1,6 @@
 package com.projetolp2.coregaming;
 
+import com.projetolp2.coregaming.Models.Entities.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
