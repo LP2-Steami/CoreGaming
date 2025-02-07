@@ -4,6 +4,7 @@ import com.projetolp2.coregaming.AplicacaoBase;
 import com.projetolp2.coregaming.Models.DAO.DAOFactory;
 import com.projetolp2.coregaming.Models.DAO.DAOUsuario;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
+import com.projetolp2.coregaming.Util.SessaoUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -25,7 +26,14 @@ public class PerfilController {
     private TextField senhaUsuarioField;
     @FXML
     private TextField dataCriacaoField;
+    private SessaoUsuario sessaoUsuario;
     private Usuario usuario;
+
+    public void mostrarDados() {
+
+    }
+
+
 
 
     public void onDeletarButtonClicked() throws SQLException, ClassNotFoundException, IOException {

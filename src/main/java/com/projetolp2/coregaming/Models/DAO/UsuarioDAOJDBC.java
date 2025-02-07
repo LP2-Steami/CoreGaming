@@ -4,6 +4,7 @@ import com.projetolp2.coregaming.DB.ConnectionDB;
 import com.projetolp2.coregaming.Models.Entities.Jogo;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
 import com.projetolp2.coregaming.Util.Alertas;
+import com.projetolp2.coregaming.Util.SessaoUsuario;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
@@ -96,9 +97,9 @@ public class UsuarioDAOJDBC implements DAOUsuario {
         PreparedStatement statement = null;
         try {
             statement = conn.prepareStatement(
-                    "DELETE FROM usuario WHERE id = ?");
+                    "DELETE FROM usuario WHERE id_usuario = ?");
 
-            statement.setInt(1, usuario.getId());
+            statement.setInt(1, SessaoUsuario.getInstance().getUsuarioLogado().getId());
 
             statement.executeUpdate();
             Alertas.mostrarAlerta(null,null,"Usuário deletado com sucesso!", Alert.AlertType.INFORMATION);
@@ -109,14 +110,14 @@ public class UsuarioDAOJDBC implements DAOUsuario {
             ConnectionDB.closeStatement(statement);
         }
     }
-    public void adicionarNoCarrinho(Jogo jogo, Usuario usuario){
+    public void adicionarNoCarrinho(Jogo jogo, SessaoUsuario usuarioSessao){
         PreparedStatement statement = null;
         String insert = "INSERT INTO Transacao (idUsuario, data, preco, quantidade) VALUES (?,?,?,?)";
         int quantidade = 0;
         try {
             ConnectionDB.getConnection();
             statement = conn.prepareStatement(insert);
-            statement.setInt(1, usuario.getId());
+            statement.setInt(1, usuarioSessao.getUsuarioLogado().getId());
             statement.setString(2, String.valueOf(LocalDate.now()));
             statement.setDouble(3, jogo.getPreco());
             statement.setInt(4, quantidade);

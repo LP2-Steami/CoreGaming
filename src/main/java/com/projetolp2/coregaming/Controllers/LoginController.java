@@ -4,6 +4,7 @@ import com.projetolp2.coregaming.AplicacaoBase;
 import com.projetolp2.coregaming.DB.ConnectionDB;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
 import com.projetolp2.coregaming.Util.Alertas;
+import com.projetolp2.coregaming.Util.SessaoUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -48,7 +49,7 @@ public class LoginController{
 
         try {
             connection = ConnectionDB.getConnection();
-            psChecarSenha = connection.prepareStatement("SELECT senha FROM usuario WHERE email = ?");
+            psChecarSenha = connection.prepareStatement("SELECT * FROM usuario WHERE email = ?");
             psChecarSenha.setString(1, email);
             resultados = psChecarSenha.executeQuery();
 
@@ -59,8 +60,19 @@ public class LoginController{
                 while (resultados.next()) {
                     String senhaRetornada = resultados.getString("senha");
                     if (senhaRetornada.equals(senha)) {
+                        int idUsuario = resultados.getInt("id_usuario");
+
+                        // Criar objeto usuário
+                        Usuario usuario = new Usuario();
+                        usuario.setId(idUsuario);
+                        usuario.setEmail(email);
+                        usuario.setSenha(senha);
+
+                        // Armazenar na sessão
+                        SessaoUsuario.getInstance().setUsuarioLogado(usuario);
+
+                        System.out.println("Usuário logado: " + idUsuario);
                         AplicacaoBase.newStage("loja.fxml", "Loja");
-                        usuarioAtual.setId(Integer.parseInt(resultados.getString("id_usuario")));
                     } else {
                         System.out.println("As senhas não correspondem!");
                         Alertas.mostrarAlerta("Senhas diferentes!", null, "Senhas incorrespondentes!", Alert.AlertType.ERROR);
