@@ -15,7 +15,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="75.0" prefWidth="557.0" style="-fx-background-color: #0f0b1a;">
+      <AnchorPane prefHeight="75.0" prefWidth="558.0" style="-fx-background-color: #0f0b1a;">
          <children>
             <Label layoutX="156.0" layoutY="27.0" text="CARRINHO DE COMPRAS" textFill="WHITE">
                <font>
@@ -37,12 +37,12 @@
                   </Button>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f1636" height="75.0" layoutX="34.0" layoutY="24.0" strokeType="INSIDE" width="75.0" />
                   <ImageView fx:id="imgJogo" fitHeight="63.0" fitWidth="66.0" layoutX="39.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="238.33333333333331" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="292.3333333333333" AnchorPane.topAnchor="30.0" />
-                  <TextArea fx:id="descricaoJogo" layoutX="153.0" layoutY="30.0" prefHeight="63.0" prefWidth="208.0" promptText="Descrição do jogo..." style="-fx-background-color: #1F1636;" />
+                  <TextArea fx:id="descricaoJogo" layoutX="153.0" layoutY="30.0" prefHeight="63.0" prefWidth="200.0" promptText="Descrição do jogo..." style="-fx-background-color: #1F1636;" />
                </children>
             </AnchorPane>
             <VBox prefHeight="297.0" prefWidth="190.0" style="-fx-background-color: #0f0b1a;">
                <children>
-                  <AnchorPane fx:id="listaPrecoJogo" prefHeight="199.0" prefWidth="0.0" style="-fx-background-color: #0f0b1a;">
+                  <AnchorPane fx:id="listaPrecoJogo" prefHeight="201.0" prefWidth="123.0" style="-fx-background-color: #0f0b1a;">
                      <children>
                         <Label fx:id="precoJogoLabel" layoutX="5.0" layoutY="5.0" prefHeight="17.0" prefWidth="121.0" />
                      </children>

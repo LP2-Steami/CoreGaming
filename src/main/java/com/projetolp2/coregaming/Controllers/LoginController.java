@@ -24,8 +24,6 @@ public class LoginController{
     @FXML
     private PasswordField senhaField;
 
-    private Usuario usuarioAtual;
-
     @FXML
     public void onLinkCadastrarClicked() throws IOException {
         AplicacaoBase.newStage("criar-perfil.fxml", "Criar perfil");
