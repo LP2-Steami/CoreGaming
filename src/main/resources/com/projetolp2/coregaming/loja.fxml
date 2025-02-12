@@ -46,70 +46,82 @@
          <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="631.0" style="-fx-background-color: #0f0b1a;">
                <children>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="AC2" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="23.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Assassins_Creed_2.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="DARKS" fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="23.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Dark_Souls_1.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="23.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Dark_Souls_3.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="141.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/diablo4.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="141.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Dragon_Ball_Z_Budokai_Tenkaichi_3.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="141.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Elder_Ring.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="266.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/God_Of_War_2.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="266.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Hades.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="266.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Hollow_Knight.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="400.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Jackie_Chan.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="400.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Kenshi.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="400.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Terraria.png" />
-                     </image></ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="23.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/The_Last_Of_Us.png" />
                      </image>
                   </ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="141.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/The_Witcher_3.png" />
                      </image>
                   </ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="266.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/Valheim.png" />
                      </image>
                   </ImageView>
-                  <ImageView onMouseClicked="#mostrarJogo" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="422.0" onMouseClicked="#mostrarJogo" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/minecraft.png" />
                      </image>

@@ -1,5 +1,7 @@
 package com.projetolp2.coregaming;
 
+import com.projetolp2.coregaming.Controllers.TelaJogoController;
+import com.projetolp2.coregaming.Models.Entities.Jogo;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +38,24 @@ public class AplicacaoBase extends Application {
         novoStage.getIcons().add(image);
         novoStage.setScene(scene);
         novoStage.show();
+        stageAtual.close();
+        stageAtual = novoStage;
+    }
+
+    public static void novaTelaJogo(String fxml, String title, Jogo jogo) throws IOException {
+        FXMLLoader loader = new FXMLLoader(AplicacaoBase.class.getResource(fxml));
+
+        scene = new Scene(loader.load());
+        Stage novoStage = new Stage();
+        novoStage.setTitle(title);
+        novoStage.setResizable(false);
+        novoStage.getIcons().add(image);
+        novoStage.setScene(scene);
+        novoStage.show();
+
+        TelaJogoController controller = loader.getController();
+        controller.setJogo(jogo);
+
         stageAtual.close();
         stageAtual = novoStage;
     }

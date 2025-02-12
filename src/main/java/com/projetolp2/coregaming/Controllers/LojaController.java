@@ -2,6 +2,7 @@ package com.projetolp2.coregaming.Controllers;
 
 import com.projetolp2.coregaming.AplicacaoBase;
 import com.projetolp2.coregaming.DB.ConnectionDB;
+import com.projetolp2.coregaming.Models.Entities.Jogo;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -19,23 +20,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class LojaController {
 
     @FXML
-    private ImageView imageView;
+    private ImageView AC2;
+
 
     public void mostrarJogo() throws IOException {
         Connection connection = null;
         PreparedStatement psJogo = null;
         ResultSet rs = null;
+        String sku = null;
 
         try {
             connection = ConnectionDB.getConnection();
-            psJogo = connection.prepareStatement("SELECT * FROM jogo WHERE foto = ?");
-            psJogo.setString(1, "foto");
+            psJogo = connection.prepareStatement("SELECT * FROM jogo WHERE sku = ?");
+            psJogo.setString(1, AC2.getId());
             rs = psJogo.executeQuery();
 
+            if (rs.next()) {
+                System.out.println("informacao do jogo: " + rs.getString("sku"));
+                Jogo jogo = new Jogo();
+                jogo.setTitulo(rs.getString("titulo"));
+                jogo.setDescricao(rs.getString("descricao"));
+                jogo.setPreco(rs.getFloat("preco"));
+                jogo.setDataLancamento(rs.getDate("data_lancamento"));
+                AplicacaoBase.novaTelaJogo("telaJogo.fxml", "Informações do jogo: " + rs.getString("titulo"), jogo);
+            }
 
         } catch (SQLException e) {
                 throw new RuntimeException(e);
