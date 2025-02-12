@@ -1,0 +1,35 @@
+INSERT INTO desenvolvedor (id_desenvolvedor, nome, website, email_contato) VALUES
+(1, 'Ubisoft', 'https://www.ubisoft.com', 'support@ubisoft.com'),
+(2, 'FromSoftware', 'https://www.fromsoftware.jp', 'support@fromsoftware.jp'),
+(3, 'Blizzard Entertainment', 'https://www.blizzard.com', 'support@blizzard.com'),
+(4, 'Spike Chunsoft', 'https://www.spike-chunsoft.com', 'support@spike-chunsoft.com'),
+(5, 'Santa Monica Studio', 'https://sms.playstation.com', 'support@playstation.com'),
+(6, 'Supergiant Games', 'https://www.supergiantgames.com', 'contact@supergiantgames.com'),
+(7, 'Team Cherry', 'https://www.teamcherry.com.au', 'support@teamcherry.com.au'),
+(8, 'Radical Entertainment', 'https://www.radical.ca', 'info@radical.ca'),
+(9, 'Lo-Fi Games', 'https://lofigames.com', 'support@lofigames.com'),
+(10, 'Mojang Studios', 'https://www.minecraft.net', 'support@mojang.com'),
+(11, 'Re-Logic', 'https://www.terraria.org', 'support@re-logic.com'),
+(12, 'Naughty Dog', 'https://www.naughtydog.com', 'support@naughtydog.com'),
+(13, 'CD Projekt Red', 'https://www.cdprojektred.com', 'contact@cdprojektred.com'),
+(14, 'Iron Gate Studio', 'https://www.valheimgame.com', 'support@irongatestudio.com');
+
+INSERT INTO jogo (id_jogo, titulo, descricao, preco, data_lancamento, id_desenvolvedor, sku) VALUES
+(1, 'Assassin''s Creed 2', 'Jogo de ação e aventura com Ezio Auditore', 49.99, '2009-11-17', 1, 'AC2'),
+(2, 'Dark Souls', 'RPG de ação desafiador da FromSoftware', 39.99, '2011-09-22', 2, 'DS'),
+(3, 'Dark Souls 3', 'Terceiro título da série Souls', 59.99, '2016-03-24', 2, 'DS3'),
+(4, 'Diablo 4', 'Jogo de RPG de ação da Blizzard', 69.99, '2023-06-06', 3, 'D4'),
+(5, 'Elden Ring', 'Mundo aberto e combate desafiador da FromSoftware', 69.99, '2022-02-25', 2, 'ER'),
+(6, 'Dragon Ball Z: Budokai Tenkaichi 3', 'Luta com personagens de Dragon Ball Z', 29.99, '2007-10-04', 4, 'DBZBT3'),
+(7, 'God of War 2', 'Continuação da saga de Kratos', 39.99, '2007-03-13', 5, 'GOW2'),
+(8, 'Hades', 'Roguelike com combate rápido e narrativa envolvente', 24.99, '2020-09-17', 6, 'H'),
+(9, 'Hollow Knight', 'Metroidvania indie com atmosfera envolvente', 14.99, '2017-02-24', 7, 'HK'),
+(10, 'Jackie Chan Stuntmaster', 'Jogo de luta estrelado por Jackie Chan', 19.99, '2000-03-29', 8, 'JCS'),
+(11, 'Kenshi', 'RPG sandbox com mundo aberto e liberdade total', 29.99, '2018-12-06', 9, 'K'),
+(12, 'Minecraft', 'Jogo de construção e sobrevivência em mundo aberto', 26.95, '2011-11-18', 10, 'MC'),
+(13, 'Terraria', 'Jogo de exploração, crafting e combate em 2D', 9.99, '2011-05-16', 11, 'T'),
+(14, 'The Last of Us', 'Jogo de ação e sobrevivência em um mundo pós-apocalíptico', 59.99, '2013-06-14', 12, 'TLOU'),
+(15, 'The Witcher 3: Wild Hunt', 'RPG de mundo aberto baseado nos livros de Geralt de Rivia', 39.99, '2015-05-19', 13, 'TW3'),
+(16, 'Valheim', 'Jogo de sobrevivência viking com elementos de RPG', 19.99, '2021-02-02', 14, 'V');
+
+
