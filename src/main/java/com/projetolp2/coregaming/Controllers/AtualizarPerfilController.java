@@ -40,7 +40,7 @@ public class AtualizarPerfilController {
         sessaoUsuario.getUsuarioLogado().setEmail(emailUsuarioField.getText());
         sessaoUsuario.getUsuarioLogado().setSenha(senhaUsuarioField.getText());
 
-        DAOFactory.createUsuarioDao().atualizar(sessaoUsuario.getUsuarioLogado());
+        DAOFactory.createUsuarioDao().atualizar(sessaoUsuario);
         Alertas.mostrarAlerta(null,null,"Usuário atualizado com sucesso!", Alert.AlertType.INFORMATION);
     }
 }

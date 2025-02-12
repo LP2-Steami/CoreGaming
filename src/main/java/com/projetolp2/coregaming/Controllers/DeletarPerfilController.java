@@ -12,7 +12,7 @@ public class DeletarPerfilController {
     private final SessaoUsuario sessaoUsuario = SessaoUsuario.getInstance();
 
     public void onConfirmarButtonClicked() throws SQLException, ClassNotFoundException, IOException {
-        DAOFactory.createUsuarioDao().deletar(sessaoUsuario.getUsuarioLogado());
+        DAOFactory.createUsuarioDao().deletar(sessaoUsuario);
         AplicacaoBase.newStage("login.fxml", "Logar perfil.");
     }
 }

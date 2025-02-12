@@ -2,6 +2,7 @@ package com.projetolp2.coregaming.Models.DAO;
 
 import com.projetolp2.coregaming.DB.ConnectionDB;
 import com.projetolp2.coregaming.Models.Entities.Jogo;
+import com.projetolp2.coregaming.Models.Entities.Transacao;
 import com.projetolp2.coregaming.Models.Entities.Usuario;
 import com.projetolp2.coregaming.Util.Alertas;
 import com.projetolp2.coregaming.Util.SessaoUsuario;
@@ -12,6 +13,8 @@ import java.time.LocalDate;
 
 
 public class UsuarioDAOJDBC implements DAOUsuario {
+    private int quantidade;
+    private double valorTotal;
     private final Connection conn;
     PreparedStatement psChecarUsuarioExistente = null;
     ResultSet resultSet = null;
@@ -66,7 +69,7 @@ public class UsuarioDAOJDBC implements DAOUsuario {
             ConnectionDB.closeConnection();
         }
     }
-    public void atualizar(Usuario usuario) {
+    public void atualizar(SessaoUsuario usuario) {
         PreparedStatement statement = null;
         try {
             statement = conn.prepareStatement(
@@ -79,10 +82,10 @@ public class UsuarioDAOJDBC implements DAOUsuario {
                             "WHERE id = ?");
 
 
-            statement.setString(1, usuario.getNome());
-            statement.setString(2, usuario.getEmail());
-            statement.setString(3, usuario.getSenha());
-            statement.setInt(6, usuario.getId());
+            statement.setString(1, usuario.getUsuarioLogado().getNome());
+            statement.setString(2, usuario.getUsuarioLogado().getEmail());
+            statement.setString(3, usuario.getUsuarioLogado().getSenha());
+            statement.setInt(6, usuario.getUsuarioLogado().getId());
             statement.executeUpdate();
             Alertas.mostrarAlerta(null,null,"Usuário cadastrado com sucesso!", Alert.AlertType.INFORMATION);
 
@@ -93,7 +96,7 @@ public class UsuarioDAOJDBC implements DAOUsuario {
             ConnectionDB.closeStatement(statement);
         }
     }
-    public void deletar(Usuario usuario) {
+    public void deletar(SessaoUsuario usuario) {
         PreparedStatement statement = null;
         try {
             statement = conn.prepareStatement(
@@ -110,17 +113,34 @@ public class UsuarioDAOJDBC implements DAOUsuario {
             ConnectionDB.closeStatement(statement);
         }
     }
-    public void adicionarNoCarrinho(Jogo jogo, SessaoUsuario usuarioSessao){
+    public void adicionarNoCarrinho(Jogo jogo, SessaoUsuario usuario){
         PreparedStatement statement = null;
-        String insert = "INSERT INTO Transacao (idUsuario, data, preco, quantidade) VALUES (?,?,?,?)";
-        int quantidade = 0;
+        ResultSet rs = null;
+        int id_transa = 0;
+
+        valorTotal+= jogo.getPreco();
+
+        String insertCarrinho = "INSERT INTO Transacao (id_usuario, data_transacao, quantidade) VALUES (?,?,?)";
+        quantidade +=1;
+
         try {
             ConnectionDB.getConnection();
-            statement = conn.prepareStatement(insert);
-            statement.setInt(1, usuarioSessao.getUsuarioLogado().getId());
-            statement.setString(2, String.valueOf(LocalDate.now()));
-            statement.setDouble(3, jogo.getPreco());
-            statement.setInt(4, quantidade);
+            statement = conn.prepareStatement(insertCarrinho, PreparedStatement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, usuario.getUsuarioLogado().getId());
+            statement.setDate(2, Date.valueOf(LocalDate.now()));
+            statement.setInt(3, quantidade);
+            boolean linhasAfetadas = statement.executeUpdate() > 0; // Retorna o número de linhas afetadas
+
+            if (linhasAfetadas) {
+                rs = statement.getGeneratedKeys();
+                if (rs.next()) {
+                    id_transa = rs.getInt(1);
+                } else {
+                    throw new SQLException("Erro na criação da transação!");
+                }
+            }
+
+            transacaoJogo(jogo, id_transa, usuario);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -129,4 +149,75 @@ public class UsuarioDAOJDBC implements DAOUsuario {
         }
 
     }
+    public void transacaoJogo(Jogo jogo, int idTransacao, SessaoUsuario usuario){
+        PreparedStatement statement = null;
+        String insertTransacaoJogo = "INSERT INTO Transacao_jogo (id_jogo, preco_unitario, id_transacao) VALUES (?,?,?)";
+
+        try {
+            ConnectionDB.getConnection();
+            statement = conn.prepareStatement(insertTransacaoJogo);
+            statement.setInt(1, jogo.getId_jogo());
+            statement.setDouble(2, jogo.getPreco());
+            statement.setInt(3, idTransacao);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            ConnectionDB.closeStatement(statement);
+        }
+    }
+
+    @Override
+    public void comprar(Jogo jogo, SessaoUsuario usuario) {
+        PreparedStatement statement = null;
+        String inserirBiblioteca = "INSERT INTO Transacao_jogo (id_usuario, id_jogo, data_adicionar, foto_jogo) VALUES (?,?,?,?)";
+
+        try {
+            statement = conn.prepareStatement(inserirBiblioteca);
+            statement.setInt(1, usuario.getUsuarioLogado().getId());
+            statement.setInt(2, jogo.getId_jogo());
+            statement.setString(3, String.valueOf(LocalDate.now()));
+            statement.setBytes(4, jogo.getFoto());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void removerDoCarrinho(Jogo jogo, SessaoUsuario usuario) {
+        PreparedStatement statement = null;
+
+        String removerDocarrinho = "DELETE FROM transacao WHERE id_usuario = ?";
+
+        valorTotal-= jogo.getPreco();
+
+        try {
+            ConnectionDB.getConnection();
+            statement = conn.prepareStatement(removerDocarrinho);
+            statement.setInt(1,usuario.getUsuarioLogado().getId() );
+            removerTransacaoJogo(jogo, usuario);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            ConnectionDB.closeStatement(statement);
+        }
+
+    }
+
+    @Override
+    public void removerTransacaoJogo(Jogo jogo, SessaoUsuario usuario) {
+        PreparedStatement statement = null;
+        String removerDoCarrinho = "DELETE FROM transacao_jogo WHERE id_usuario = ?";
+        try {
+            ConnectionDB.getConnection();
+            statement = conn.prepareStatement(removerDoCarrinho);
+            statement.setInt(1,usuario.getUsuarioLogado().getId());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            ConnectionDB.closeStatement(statement);
+        }
+    }
+
 }

@@ -55,9 +55,6 @@ public class AplicacaoBase extends Application {
 
         TelaJogoController controller = loader.getController();
         controller.setJogo(jogo);
-
-        stageAtual.close();
-        stageAtual = novoStage;
     }
 
     public static void novaTela(String fxml, String title) throws IOException {
