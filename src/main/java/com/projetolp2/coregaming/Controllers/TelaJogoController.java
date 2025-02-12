@@ -23,13 +23,10 @@ public class TelaJogoController {
 
     private Jogo jogo;
 
-    public void mostrarInfo() {
-        nomeJogo.setText(jogo.getTitulo());
-        descricao.setText(jogo.getDescricao());
-        dataLancamento.setText(jogo.getDataLancamento().toString());
-    }
-
     public void setJogo(Jogo jogo) {
         this.jogo = jogo;
+        nomeJogo.setText(jogo.getTitulo());
+        descricao.setText(jogo.getDescricao());
+        preco.setText(String.format("%.2f", jogo.getPreco()));
     }
 }
