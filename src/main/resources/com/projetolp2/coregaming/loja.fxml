@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.LojaController">
     <children>
-        <MenuBar layoutY="4.0" prefHeight="27.0" prefWidth="520.0" style="-fx-background-color: #0f0b1a;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MenuBar layoutY="-0.6666666666666666" prefHeight="34.0" prefWidth="520.0" style="-fx-background-color: #1F1636;" AnchorPane.bottomAnchor="374.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
             <menus>
-                <Menu fx:id="loja" mnemonicParsing="false" onAction="#onLojaButtonClicked" text="Loja" />
-                <Menu fx:id="biblioteca" mnemonicParsing="false" onAction="#onBibliotecaButtonClicked" text="Biblioteca" />
-                <Menu fx:id="usuario" mnemonicParsing="false" text="Usuário">
+                <Menu fx:id="loja" mnemonicParsing="false" onAction="#onLojaButtonClicked">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Loja" />
+               </graphic></Menu>
+                <Menu fx:id="biblioteca" mnemonicParsing="false" onAction="#onBibliotecaButtonClicked">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Biblioteca" textAlignment="CENTER" />
+               </graphic></Menu>
+                <Menu fx:id="usuario" mnemonicParsing="false">
                     <items>
                         <MenuItem fx:id="verPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Ver perfil" />
                         <MenuItem fx:id="atualizarPerfil" mnemonicParsing="false" onAction="#onAtualizarPerfilButtonClicked" text="Alterar perfil" />
                         <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" />
                     </items>
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Usuário" />
+               </graphic>
                 </Menu>
-                <Menu fx:id="carrinho" mnemonicParsing="false" onAction="#onCarrinhoButtonClicked" text="Carrinho" />
+                <Menu fx:id="carrinho" mnemonicParsing="false" onAction="#onCarrinhoButtonClicked">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Carrinho" />
+               </graphic></Menu>
             </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
         </MenuBar>
-        <ScrollPane layoutY="27.333333333333332" prefHeight="380.0" prefWidth="520.0" style="-fx-background-color: #0f0b1a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="379.0" prefWidth="521.0" style="-fx-background-color: #0f0b1a;">
+          <AnchorPane layoutY="32.0" minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="520.0" style="-fx-background-color: #0f0b1a;">
+         <children>
+            <HBox layoutX="-2.6666667461395264" layoutY="2.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="2.0">
                <children>
-                  <GridPane layoutX="-2.6666666666666665" layoutY="2.0" prefHeight="380.0" prefWidth="507.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="2.0">
+                  <GridPane prefHeight="163.0" prefWidth="498.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -91,8 +108,9 @@
                      </children>
                   </GridPane>
                </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
+            </HBox>
+            <ScrollBar layoutX="493.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="381.0" prefWidth="25.0" style="-fx-background-color: #0f0b1a;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="493.0" AnchorPane.topAnchor="-1.0" />
+         </children>
+          </AnchorPane>
     </children>
 </AnchorPane>

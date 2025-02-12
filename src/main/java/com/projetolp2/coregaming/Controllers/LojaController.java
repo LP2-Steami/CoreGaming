@@ -16,11 +16,11 @@ public class LojaController {
     }
     @FXML
     public void onVerPerfilButtonClicked() throws IOException {
-        AplicacaoBase.newStage("perfil.fxml", "Perfil do Usuário");
+        AplicacaoBase.novaTela("perfil.fxml", "Perfil do Usuário");
     }
     @FXML
     public void onAtualizarPerfilButtonClicked() throws IOException {
-        AplicacaoBase.newStage("atualizar-perfil.fxml", "Atualizar Perfil");
+        AplicacaoBase.novaTela("atualizar-perfil.fxml", "Atualizar Perfil");
     }
     @FXML
     public void onCarrinhoButtonClicked() throws IOException {

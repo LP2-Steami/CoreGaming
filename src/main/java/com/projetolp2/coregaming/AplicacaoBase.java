@@ -40,6 +40,17 @@ public class AplicacaoBase extends Application {
         stageAtual = novoStage;
     }
 
+    public static void novaTela(String fxml, String title) throws IOException {
+        FXMLLoader loader = new FXMLLoader(AplicacaoBase.class.getResource(fxml));
+        scene = new Scene(loader.load());
+        Stage novoStage = new Stage();
+        novoStage.setTitle(title);
+        novoStage.setResizable(false);
+        novoStage.getIcons().add(image);
+        novoStage.setScene(scene);
+        novoStage.show();
+    }
+
     public static Scene getScene(){
         return scene;
     }
