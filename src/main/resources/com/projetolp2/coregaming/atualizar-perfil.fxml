@@ -4,35 +4,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="297.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.AtualizarPerfilController">
+<AnchorPane prefHeight="297.0" prefWidth="312.0" style="-fx-background-color: #0f0b1a;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.AtualizarPerfilController">
    <children>
-      <Button fx:id="atualizar" layoutX="60.0" layoutY="233.0" mnemonicParsing="false" onAction="#onAtualizarClick" text="Atualizar">
+      <Button fx:id="atualizar" layoutX="23.0" layoutY="234.0" mnemonicParsing="false" onAction="#onAtualizarClick" prefHeight="34.0" prefWidth="266.0" style="-fx-background-color: #1f1636;" text="Atualizar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
       </Button>
-      <ImageView fx:id="imgUsuario" fitHeight="101.0" fitWidth="109.0" layoutX="37.0" layoutY="23.0" onMouseClicked="#fotoOnClicked" pickOnBounds="true" preserveRatio="true">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <Label layoutX="188.0" layoutY="23.0" prefHeight="17.0" prefWidth="109.0" text="Nome do usuário" />
-      <Label layoutX="188.0" layoutY="82.0" prefHeight="17.0" prefWidth="109.0" text="Email" />
-      <Label layoutX="188.0" layoutY="140.0" prefHeight="17.0" prefWidth="109.0" text="Senha" />
-      <TextField fx:id="nomeUsuarioField" layoutX="188.0" layoutY="48.0" promptText="Digite um nome...">
+      <Label layoutX="21.0" layoutY="30.0" prefHeight="17.0" prefWidth="109.0" text="Nome do usuário" />
+      <Label layoutX="21.0" layoutY="92.0" prefHeight="17.0" prefWidth="109.0" text="Email" />
+      <Label layoutX="21.0" layoutY="149.0" prefHeight="17.0" prefWidth="109.0" text="Senha" />
+      <TextField fx:id="nomeUsuarioField" layoutX="21.0" layoutY="56.0" prefHeight="25.0" prefWidth="266.0" promptText="Digite um nome..." style="-fx-background-color: #1f1636;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TextField>
-      <TextField fx:id="emailUsuarioField" layoutX="188.0" layoutY="111.0" promptText="Digite seu email...">
+      <TextField fx:id="emailUsuarioField" layoutX="21.0" layoutY="115.0" prefHeight="25.0" prefWidth="266.0" promptText="Digite seu email..." style="-fx-background-color: #1f1636;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TextField>
-      <TextField fx:id="senhaUsuarioField" layoutX="188.0" layoutY="167.0" promptText="Digite uma senha...">
+      <TextField fx:id="senhaUsuarioField" layoutX="21.0" layoutY="174.0" prefHeight="25.0" prefWidth="266.0" promptText="Digite uma senha..." style="-fx-background-color: #1f1636;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

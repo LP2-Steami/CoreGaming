@@ -13,25 +13,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.EventListener;
 import java.util.ResourceBundle;
 
 public class PerfilController implements Initializable {
-    @FXML
-    public Button botaoConfirmarDeletar;
-    @FXML
-    public Button botaoDeletar;
-    @FXML
-    private ImageView imgUsuario;
     @FXML
     private TextField nomeUsuarioField;
     @FXML
@@ -48,16 +39,6 @@ public class PerfilController implements Initializable {
         emailUsuarioField.setText(sessaoUsuario.getUsuarioLogado().getEmail());
         senhaUsuarioField.setText(sessaoUsuario.getUsuarioLogado().getSenha());
         dataCriacaoField.setText(sessaoUsuario.getUsuarioLogado().getDataCriacao().toString());
-        imgUsuario.setImage(sessaoUsuario.getUsuarioLogado().getFoto());
-    }
-
-    public void onDeletarButtonClicked() throws IOException {
-        AplicacaoBase.novaTela("confirmar-deletar.fxml", "Tem certeza?");
-    }
-
-    public void onConfirmarButtonClicked() throws SQLException, ClassNotFoundException, IOException {
-        DAOFactory.createUsuarioDao().deletar(sessaoUsuario.getUsuarioLogado());
-        AplicacaoBase.newStage("login.fxml", "Logar perfil.");
     }
 
     @Override

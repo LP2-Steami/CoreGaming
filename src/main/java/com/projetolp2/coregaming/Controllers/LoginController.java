@@ -66,7 +66,7 @@ public class LoginController{
                         usuario.setEmail(email);
                         usuario.setSenha(senha);
                         usuario.setNome(resultados.getString("nome"));
-                        usuario.setFoto(resultados.getBytes("foto"));
+//                        usuario.setFoto(resultados.getBytes("foto"));
                         usuario.setDataCriacao(resultados.getDate("data_criacao").toLocalDate());
 
                         // Armazenar na sessão

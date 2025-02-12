@@ -6,6 +6,7 @@ import com.projetolp2.coregaming.Models.DAO.DAOFactory;
 
 
 import com.projetolp2.coregaming.Util.Alertas;
+import com.projetolp2.coregaming.Util.SessaoUsuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -20,43 +21,26 @@ import java.time.LocalDate;
 
 public class AtualizarPerfilController {
     @FXML
-    private ImageView imgUsuario;
-    @FXML
-    private Label nomeUsuario;
-    @FXML
     private TextField nomeUsuarioField;
-    @FXML
-    private Label emailUsuario;
     @FXML
     private TextField emailUsuarioField;
     @FXML
-    private Label senhaUsuario;
-    @FXML
     private TextField senhaUsuarioField;
-    @FXML
-    private Button atualizar;
-    @FXML
-    private Image foto;
-    private File file;
-    private Usuario usuario;
-    private LocalDate data;
 
-    public byte[] fotoOnClicked(){
-        FileChooser fc = new FileChooser();
-        File file = fc.showOpenDialog(AplicacaoBase.getStage().getScene().getWindow());
-        if(file!=null){
-            imgUsuario.setImage(new Image(file.getAbsolutePath()));
-        }
-        return null;
+    private final SessaoUsuario sessaoUsuario = SessaoUsuario.getInstance();
+
+    public void mostrarDados() {
+        nomeUsuarioField.setText(sessaoUsuario.getUsuarioLogado().getNome());
+        emailUsuarioField.setText(sessaoUsuario.getUsuarioLogado().getEmail());
+        senhaUsuarioField.setText(sessaoUsuario.getUsuarioLogado().getSenha());
     }
 
     public void onAtualizarClick() throws SQLException, ClassNotFoundException {
-        usuario.setNome(nomeUsuarioField.getText());
-        usuario.setEmail(emailUsuarioField.getText());
-        usuario.setSenha(senhaUsuarioField.getText());
-        usuario.setFoto(fotoOnClicked());
+        sessaoUsuario.getUsuarioLogado().setNome(nomeUsuarioField.getText());
+        sessaoUsuario.getUsuarioLogado().setEmail(emailUsuarioField.getText());
+        sessaoUsuario.getUsuarioLogado().setSenha(senhaUsuarioField.getText());
 
-        DAOFactory.createUsuarioDao().atualizar(usuario);
+        DAOFactory.createUsuarioDao().atualizar(sessaoUsuario.getUsuarioLogado());
         Alertas.mostrarAlerta(null,null,"Usuário atualizado com sucesso!", Alert.AlertType.INFORMATION);
     }
 }

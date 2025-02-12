@@ -2,10 +2,7 @@ package com.projetolp2.coregaming.Models.Entities;
 
 import javafx.scene.image.Image;
 
-import java.io.File;
-import java.net.URI;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -22,7 +19,7 @@ public class Usuario{
 
     private LocalDate dataCriacao;
 
-    private byte[] foto;
+    private Image foto;
 
 
     // Construtores
@@ -62,11 +59,10 @@ public class Usuario{
     }
     public void setDataCriacao(LocalDate dataCriacao) { this.dataCriacao = dataCriacao; }
 
-    public Image getFoto() {
-        File fc = new File("img.png");
-        return new Image(fc.toURI().toString());
-    }
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
+//    public Image getFoto() {
+//        return foto;
+//    }
+//    public void setFoto(Image foto) {
+//        this.foto = foto;
+//    }
 }
