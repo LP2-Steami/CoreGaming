@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.LojaController">
+    <children>
+        <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="520.0" style="-fx-background-color: #1F1636;" AnchorPane.bottomAnchor="377.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+            <menus>
+                <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Loja" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="abrirLoja" mnemonicParsing="false" onAction="#onLojaButtonClicked" text="Abrir loja" />
+               </items></Menu>
+                <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Biblioteca" textAlignment="CENTER" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="abrirBiblioteca" mnemonicParsing="false" onAction="#onBibliotecaButtonClicked" text="Abrir biblioteca" />
+               </items></Menu>
+                <Menu mnemonicParsing="false">
+                    <items>
+                        <MenuItem fx:id="verPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Ver perfil" />
+                        <MenuItem fx:id="atualizarPerfil" mnemonicParsing="false" onAction="#onAtualizarPerfilButtonClicked" text="Alterar perfil" />
+                        <MenuItem fx:id="deletarPerfil" mnemonicParsing="false" onAction="#onDeletarPerfilClicked" text="Deletar perfil" />
+                        <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" />
+                    </items>
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Usuário" />
+               </graphic>
+                </Menu>
+                <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label style="-fx-text-fill: #fff;" text="Carrinho" />
+               </graphic>
+               <items>
+                  <MenuItem fx:id="abrirCarrinho" mnemonicParsing="false" text="Abrir carrinho" onAction="#onCarrinhoButtonClicked" />
+               </items></Menu>
+            </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+        </MenuBar>
+      <ScrollPane layoutY="28.0" prefHeight="379.0" prefWidth="520.0" style="-fx-background-color: #0f0b1a;">
+         <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="631.0" style="-fx-background-color: #0f0b1a;">
+               <children>
+                  <ImageView fx:id="AC2" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="23.0" onMouseClicked="#mostrarAC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Assassins_Creed_2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="DS" fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="23.0" onMouseClicked="#mostrarDS" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Dark_Souls_1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="DS3" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="23.0" onMouseClicked="#mostrarDS3" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Dark_Souls_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="D4" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="141.0" onMouseClicked="#mostrarD4" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/diablo4.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="DBZBT3" fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="141.0" onMouseClicked="#mostrarDBZBT3" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Dragon_Ball_Z_Budokai_Tenkaichi_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ER" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="141.0" onMouseClicked="#mostrarER" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Elder_Ring.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="GOW2" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="266.0" onMouseClicked="#mostrarGOW2" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/God_Of_War_2.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H" fitHeight="100.0" fitWidth="100.0" layoutX="202.0" layoutY="266.0" onMouseClicked="#mostrarH" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Hades.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="HK" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="266.0" onMouseClicked="#mostrarHK" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Hollow_Knight.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="JCS" fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="400.0" onMouseClicked="#mostrarJCS" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Jackie_Chan.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="K" fitHeight="100.0" fitWidth="100.0" layoutX="209.0" layoutY="400.0" onMouseClicked="#mostrarK" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Kenshi.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="T" fitHeight="100.0" fitWidth="100.0" layoutX="373.0" layoutY="400.0" onMouseClicked="#mostrarT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Terraria.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="TLOU" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="23.0" onMouseClicked="#mostrarTLOU" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/The_Last_Of_Us.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="TW3" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="141.0" onMouseClicked="#mostrarTW3" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/The_Witcher_3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="V" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="266.0" onMouseClicked="#mostrarV" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/Valheim.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="MC" fitHeight="100.0" fitWidth="100.0" layoutX="530.0" layoutY="422.0" onMouseClicked="#mostrarMC" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/minecraft.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="281.0" prefWidth="284.0" style="-fx-background-color: #0f0b1a;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetolp2.coregaming.Controllers.PerfilController">
+   <children>
+      <Label layoutX="26.0" layoutY="14.0" prefHeight="17.0" prefWidth="98.0" text="Nome do Usuário" textFill="WHITE" />
+      <Label layoutX="26.0" layoutY="75.0" prefHeight="17.0" prefWidth="98.0" text="Email" textFill="WHITE" />
+      <Label layoutX="26.0" layoutY="132.0" prefHeight="17.0" prefWidth="98.0" text="Senha" textFill="WHITE" />
+      <Label layoutX="26.0" layoutY="195.0" prefHeight="17.0" prefWidth="98.0" text="Data de Criação" textFill="WHITE" />
+      <TextField fx:id="nomeUsuarioField" editable="false" layoutX="26.0" layoutY="42.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #1F1636;" />
+      <TextField fx:id="emailUsuarioField" editable="false" layoutX="26.0" layoutY="99.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #1F1636;" />
+      <TextField fx:id="senhaUsuarioField" editable="false" layoutX="26.0" layoutY="158.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #1F1636;" />
+      <TextField fx:id="dataCriacaoField" editable="false" layoutX="26.0" layoutY="221.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #1F1636;" />
+   </children>
+</AnchorPane>
