@@ -1,0 +1,106 @@
+BEGIN;
+
+
+CREATE TABLE IF NOT EXISTS public.biblioteca
+(
+    id_usuario integer NOT NULL,
+    id_jogo integer NOT NULL,
+    data_adicionado timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    foto_jogo bytea[],
+    CONSTRAINT biblioteca_pkey PRIMARY KEY (id_usuario, id_jogo)
+);
+
+CREATE TABLE IF NOT EXISTS public.desenvolvedor
+(
+    id_desenvolvedor serial NOT NULL,
+    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    website character varying(255) COLLATE pg_catalog."default",
+    email_contato character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT desenvolvedor_pkey PRIMARY KEY (id_desenvolvedor),
+    CONSTRAINT desenvolvedor_email_contato_key UNIQUE (email_contato)
+);
+
+CREATE TABLE IF NOT EXISTS public.jogo
+(
+    id_jogo serial NOT NULL,
+    titulo character varying(150) COLLATE pg_catalog."default" NOT NULL,
+    descricao text COLLATE pg_catalog."default",
+    preco numeric(10, 2) NOT NULL,
+    data_lancamento date,
+    id_desenvolvedor integer NOT NULL,
+    sku varchar,
+    CONSTRAINT jogo_pkey PRIMARY KEY (id_jogo)
+);
+
+CREATE TABLE IF NOT EXISTS public.transacao
+(
+    id_transacao serial NOT NULL,
+    id_usuario integer NOT NULL,
+    data_transacao timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    quantidade integer,
+    foto_jogo bytea[],
+    CONSTRAINT transacao_pkey PRIMARY KEY (id_transacao)
+);
+
+CREATE TABLE IF NOT EXISTS public.transacao_jogo
+(
+    id_transacao integer NOT NULL,
+    id_jogo integer NOT NULL,
+    preco_unitario numeric(10, 2) NOT NULL,
+    CONSTRAINT transacao_jogo_pkey PRIMARY KEY (id_transacao, id_jogo)
+);
+
+CREATE TABLE IF NOT EXISTS public.usuario
+(
+    id_usuario serial NOT NULL,
+    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    senha character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    data_criacao timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    foto bytea,
+    CONSTRAINT usuario_pkey PRIMARY KEY (id_usuario),
+    CONSTRAINT usuario_email_key UNIQUE (email)
+);
+
+ALTER TABLE IF EXISTS public.biblioteca
+    ADD CONSTRAINT biblioteca_id_jogo_fkey FOREIGN KEY (id_jogo)
+    REFERENCES public.jogo (id_jogo) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.biblioteca
+    ADD CONSTRAINT biblioteca_id_usuario_fkey FOREIGN KEY (id_usuario)
+    REFERENCES public.usuario (id_usuario) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.jogo
+    ADD CONSTRAINT jogo_id_desenvolvedor_fkey FOREIGN KEY (id_desenvolvedor)
+    REFERENCES public.desenvolvedor (id_desenvolvedor) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.transacao
+    ADD CONSTRAINT transacao_id_usuario_fkey FOREIGN KEY (id_usuario)
+    REFERENCES public.usuario (id_usuario) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.transacao_jogo
+    ADD CONSTRAINT transacao_jogo_id_jogo_fkey FOREIGN KEY (id_jogo)
+    REFERENCES public.jogo (id_jogo) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+
+ALTER TABLE IF EXISTS public.transacao_jogo
+    ADD CONSTRAINT transacao_jogo_id_transacao_fkey FOREIGN KEY (id_transacao)
+    REFERENCES public.transacao (id_transacao) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
+END;
