@@ -33,7 +33,7 @@
                         <MenuItem fx:id="verPerfil" mnemonicParsing="false" onAction="#onVerPerfilButtonClicked" text="Ver perfil" />
                         <MenuItem fx:id="atualizarPerfil" mnemonicParsing="false" onAction="#onAtualizarPerfilButtonClicked" text="Alterar perfil" />
                         <MenuItem fx:id="deletarPerfil" mnemonicParsing="false" onAction="#onDeletarPerfilClicked" text="Deletar perfil" />
-                        <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" />
+                        <MenuItem fx:id="sairPerfil" mnemonicParsing="false" text="Sair" onAction="#onSairButtonClicked" />
                     </items>
                <graphic>
                   <Label style="-fx-text-fill: #fff;" text="Usuário" />

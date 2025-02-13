@@ -72,20 +72,13 @@ public class UsuarioDAOJDBC implements DAOUsuario {
     public void atualizar(SessaoUsuario usuario) {
         PreparedStatement statement = null;
         try {
-            statement = conn.prepareStatement(
-                    "UPDATE usuario " +
-                            "SET nome = ?, " +
-                            "email = ?"+
-                            "senha = ?,"+
-                            "dataCriacao = ?,"+
-                            "foto = ?"+
-                            "WHERE id = ?");
+            statement = conn.prepareStatement("UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE id_usuario = ?");
 
 
             statement.setString(1, usuario.getUsuarioLogado().getNome());
             statement.setString(2, usuario.getUsuarioLogado().getEmail());
             statement.setString(3, usuario.getUsuarioLogado().getSenha());
-            statement.setInt(6, usuario.getUsuarioLogado().getId());
+            statement.setInt(4, usuario.getUsuarioLogado().getId());
             statement.executeUpdate();
             Alertas.mostrarAlerta(null,null,"Usuário cadastrado com sucesso!", Alert.AlertType.INFORMATION);
 

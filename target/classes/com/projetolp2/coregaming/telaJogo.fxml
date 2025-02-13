@@ -9,18 +9,21 @@
    <children>
       <Label fx:id="nomeJogo" layoutX="46.0" layoutY="38.0" prefHeight="30.0" prefWidth="370.0" textFill="WHITE">
          <font>
-            <Font name="Verdana Bold" size="12.0" />
+            <Font name="Verdana Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="adicionarCarrinho" layoutX="42.0" layoutY="261.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="370.0" style="-fx-background-color: #1F1636;" text="Adicionar no carrinho" textFill="WHITE">
+      <Button fx:id="adicionarCarrinho" layoutX="42.0" layoutY="261.0" mnemonicParsing="false" onAction="#onAdicionarCarrinhoClicked" prefHeight="33.0" prefWidth="370.0" style="-fx-background-color: #1F1636;" text="Adicionar no carrinho" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="15.0" />
          </font>
       </Button>
       <Label layoutX="245.0" layoutY="101.0" prefHeight="18.0" prefWidth="182.0" text="Data de lançamento: " textFill="WHITE" />
       <Label fx:id="dataLancamento" layoutX="247.0" layoutY="119.0" prefHeight="17.0" prefWidth="178.0" textFill="WHITE" />
-      <Label fx:id="descricao" layoutX="45.0" layoutY="94.0" prefHeight="98.0" prefWidth="178.0" style="-fx-background-color: #1F1636;" textFill="WHITE" />
+      <Label fx:id="descricao" alignment="TOP_LEFT" layoutX="45.0" layoutY="94.0" prefHeight="98.0" prefWidth="178.0" style="-fx-background-color: #1F1636;" textAlignment="JUSTIFY" textFill="WHITE" />
       <Label layoutX="245.0" layoutY="165.0" prefHeight="18.0" prefWidth="53.0" text="Preço:" textFill="WHITE" />
-      <Label fx:id="preco" layoutX="288.0" layoutY="165.0" prefHeight="41.0" prefWidth="126.0" textFill="LIMEGREEN" />
+      <Label fx:id="preco" layoutX="290.0" layoutY="153.0" prefHeight="41.0" prefWidth="85.0" textFill="LIMEGREEN">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

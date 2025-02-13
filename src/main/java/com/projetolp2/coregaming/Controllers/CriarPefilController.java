@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class CriarPefilController {
     @FXML
@@ -40,8 +42,15 @@ public class CriarPefilController {
         usuario.setSenha(senhaField.getText());
         usuario.setDataCriacao(LocalDate.now());
 
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        Matcher matcher = pattern.matcher(usuario.getEmail());
+        if (!matcher.matches()) {
+            Alertas.mostrarAlerta("Email Inválido!", null, "Formato de e-mail Inválido!", Alert.AlertType.ERROR);
+            throw new Error("email invalido");
+        }
+
         DAOFactory.createUsuarioDao().inserir(usuario);
-        Alertas.mostrarAlerta("Sucesso!",null,"Usuário atualizado com sucesso!", Alert.AlertType.CONFIRMATION);
+        Alertas.mostrarAlerta("Sucesso!",null,"Usuário Criado com sucesso!", Alert.AlertType.CONFIRMATION);
         AplicacaoBase.newStage("login.fxml", "Logar perfil");
     }
 
